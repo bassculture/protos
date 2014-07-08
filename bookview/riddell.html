@@ -1,0 +1,233 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+  <script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+  <style type="text/css"> 
+  .img-box {
+    margin: 10px;
+  }
+    
+  img {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    left:0px;
+    top:0px;
+/*    opacity: 0.3;*/
+  }
+
+  .commentary-box-left {
+    margin: inherit;
+    position: fixed;
+    z-index: 100;
+    left:0px;
+    top:0px;
+    background-color: white;
+    opacity: 0.8;
+    width: 20%;
+    height: 95%;
+    display: none;
+  }
+
+  .commentary-box-floating {
+    margin: 10px;
+    position: fixed;
+    z-index: 200;
+    left: 15%;
+    top:10%;
+    background-color: white;
+    opacity: 0.85;
+    width: 70%;
+    height: 50%;  
+    display: none;
+  }
+  
+  .highlight {
+    opacity: 0.2;
+    background-color: brown;
+    z-index: 110;
+  }
+
+  #area1 {
+    width: 300px;
+    height: 20px;
+  }
+
+  #area2 {
+    width: 100px;
+    height: 80px;
+  }
+
+  #header {
+      position: absolute;
+      /*opacity: 0.8;*/
+      color: grey;
+      z-index: 2000;
+      width: 100%;
+      text-align: center;
+  }
+
+  .pagination-div {
+      position: static;
+      z-index: 1000;
+      color: grey;
+      /*opacity: 0.8;*/
+      width: 100%;
+      padding: 5px;
+  }
+
+  #title {
+      display: none;
+      position: static;
+      font-weight: bold;
+      font-size: 1.5em;
+  }
+
+  div#preloader, 
+  div#preloader img {
+    visibility: hidden;
+    display: none;
+  }
+
+  </style>
+
+  <script type="text/javascript" >
+  
+  var position_highlight_onto_image = function(highlight_area, img, x, y) {
+    $(highlight_area).css('position: absolute');
+    var img_offset = $(img).offset();
+    $(highlight_area).offset({
+      left: img_offset.left + x - $(highlight_area).width()/2, 
+      top: img_offset.top + y - $(highlight_area).height()/2
+    });
+  }
+  
+  
+  var position_highlights = function() {
+    position_highlight_onto_image($('#area1'), $('img'), 746, 60);
+    position_highlight_onto_image($('#area2'), $('img'), 695, 205);
+  }
+  
+  window.onresize = function(event) {
+    // var rat_h = window.innerHeight / $('img').height();
+    // var rat_w = window.innerWidth / $('img').width();
+    // if (rat_w >= rat_h) {
+    //   $('img').css('width', "100%");
+    //   $('img').css('height', "auto");
+    // } else {
+    //   $('img').css('width', "auto");
+    //   $('img').css('height', "100%");
+    // }
+    // position_highlights();
+  };
+  
+  var toggle_img_opacity = function() {
+    if ($('.commentary-box-floating').css('display') === 'none' && 
+        $('.commentary-box-left').css('display') === 'none') {
+      $('img').css('opacity', 1.0);
+    } else {
+      $('img').css('opacity', 0.3);
+    }
+  };
+  
+    
+  $('*', document.body).click(function(event) {
+    // obj.trigger("alert", "an event");
+    // event.stopPropagation();
+    // if (event.clientX > window.outerWidth/3.0) {
+    //   $('.commentary-box-floating').toggle();
+    // } else {
+    //   $('.commentary-box-left').toggle();
+    // }
+    // toggle_img_opacity();
+  });
+  
+  document.ready = function() {
+    $('#area1').offset({top: 0, left: 0} );
+    position_highlights()
+  };
+  
+  </script>
+
+
+</head>
+<body>
+  <div id="bookview-app">
+    <div class="img-box">
+      <div id="header">
+          <div id="pagination-controls" class="pagination-div" align="center">
+              <button id="pageturn-prev">Prev</button>
+              <span id="pagenumber" width="10">0/0</span>
+              <button id="pageturn-next">Next</button>
+          </div>
+          <div id="title">
+              Riddell: A collection of Scots Reels, Minutes &amp;c for the Violin, Harpsichord or German Flute
+          </div>
+      </div>
+      <img id="landscape" src="img/riddell/Ca9-d_22_015.jpg"/>
+      <div class="commentary-box-left">
+        <h3>Bibliographic Info</h3>
+        <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.</p>      <h3>Commentary on the Book as a whole:</h3>
+        <p>Nulla wisi laoreet suspendisse hendrerit facilisi, mi mattis pariatur adipiscing aliquam pharetra eget. Aenean urna ipsum donec tellus tincidunt, quam curabitur metus, pretium purus facilisis enim id, integer eleifend vitae volutpat consequat per leo. [more]</p>
+      </div>
+    </div>
+    <div class="commentary-box-floating">
+      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.</p>
+    </div>
+  <div>
+  <div id="preloader">
+    <img id="pg-15" src="img/riddell/Ca9-d_22_015.jpg"/>
+    <img id="pg-16" src="img/riddell/Ca9-d_22_016.jpg"/>
+    <img id="pg-17" src="img/riddell/Ca9-d_22_017.jpg"/>
+    <img id="pg-18" src="img/riddell/Ca9-d_22_018.jpg"/>
+    <img id="pg-19" src="img/riddell/Ca9-d_22_019.jpg"/>
+    <img id="pg-20" src="img/riddell/Ca9-d_22_020.jpg"/>
+  </div>
+
+    <!-- JQUERY -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- FLATIRION DIRECTOR ROUTING LIBRARY -->
+    <script src="assets/director-1.1.6.min.js"></script>
+
+    <!-- PUREMVC LIBRARY -->
+    <script src="js/libs/puremvc-1.0.1.min.js"></script>
+
+    <!-- APPLICATION CONSTANTS -->
+    <script src="js/src/AppConstants.js"></script>
+
+    <!-- PROXIES -->
+    <script src="js/src/model/proxy/RiddellBookProxy.js"></script>
+
+    <!-- EVENTS -->
+    <script src="js/src/view/event/AppEvents.js"></script>
+
+    <!-- VIEW COMPONENTS -->
+    <script src="js/src/view/component/RiddellViewer.js"></script>
+        
+    <!-- MEDIATORS -->
+    <script src="js/src/view/mediator/RiddellViewerMediator.js"></script>
+
+    <!-- COMMANDS -->
+    <script src="js/src/controller/command/StartupCommand.js"></script>
+    <script src="js/src/controller/command/PrepControllerCommand.js"></script>
+    <script src="js/src/controller/command/PrepModelCommand.js"></script>
+    <script src="js/src/controller/command/PrepViewCommand.js"></script>
+    <script src="js/src/controller/command/PageturnCommand.js"></script>
+
+
+    <!-- APPLICATION -->
+    <script src="js/src/app.js"></script>
+
+    <!-- START THE APPLICATION -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() 
+    {
+        var app = new riddellmvc.Application();
+    });
+    </script>
+
+</body>
+</html>

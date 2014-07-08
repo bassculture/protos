@@ -1,0 +1,192 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+  <script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+  <style type="text/css"> 
+  .img-box {
+    margin: 10px;
+  }
+    
+  img.facs-landscape {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    top: 0px;
+/*    opacity: 0.3;*/
+  }
+  
+  .overlay-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    left:0px;
+    top:0px;
+  }
+
+  .commentary-box-left {
+    margin: inherit;
+    position: fixed;
+    z-index: 100;
+    left:0px;
+    top:0px;
+    background-color: white;
+    opacity: 0.8;
+    width: 20%;
+    height: 95%;
+    display: none;
+  }
+
+  .commentary-box-floating {
+    margin: 10px;
+    position: fixed;
+    z-index: 200;
+    left: 15%;
+    top:10%;
+    background-color: white;
+    opacity: 0.85;
+    width: 70%;
+    height: 50%;  
+    display: none;
+  }
+  
+  .highlight {
+    opacity: 0.2;
+    background-color: brown;
+    z-index: 110;
+  }
+
+  #area1 {
+    width: 300px;
+    height: 20px;
+  }
+
+  #area2 {
+    width: 100px;
+    height: 80px;
+  }
+  
+  .slider {
+    width: 200px;
+    height: 15px;
+    background-color: grey;
+    z-index: 99;
+    position: fixed;
+    top: 15px;
+    left: 25px;
+  }
+  
+  </style>
+
+  <script type="text/javascript" >
+  
+  var position_highlight_onto_image = function(highlight_area, img, x, y) {
+    $(highlight_area).css('position: absolute');
+    var img_offset = $(img).offset();
+    $(highlight_area).offset({
+      left: img_offset.left + x - $(highlight_area).width()/2, 
+      top: img_offset.top + y - $(highlight_area).height()/2
+    });
+  }
+  
+  
+  var position_highlights = function() {
+    position_highlight_onto_image($('#area1'), $('img'), 746, 60);
+    position_highlight_onto_image($('#area2'), $('img'), 695, 205);
+  }
+  
+  window.onresize = function(event) {
+    // var rat_img = $('img').height() / $('img').width();
+    // var rat_win = window.innerHeight / window.innderWidth;
+    var rat_h = window.innerHeight / $('img').height();
+    var rat_w = window.innerWidth / $('img').width();
+    if (rat_w >= rat_h) {
+      $('img').css('width', "100%");
+      $('img').css('height', "auto");
+    } else {
+      $('img').css('width', "auto");
+      $('img').css('height', "100%");
+    }
+    position_highlights();
+  };
+  
+
+  // $('#area1').position(100, 200);
+  // var obj = {};
+  // _.extend(obj, Backbone.Events);
+  // obj.on("alert", function(msg) {
+  //   alert("Triggered " + msg);
+  // });
+  
+  var toggle_img_opacity = function() {
+    if ($('.commentary-box-floating').css('display') === 'none' && 
+        $('.commentary-box-left').css('display') === 'none') {
+      $('.overlay-box').css('opacity', 1.0);
+    } else {
+      $('.overlay-box').css('opacity', 0.3);
+    }
+  };
+  
+    
+  $('*', document.body).click(function(event) {
+    // obj.trigger("alert", "an event");
+    event.stopPropagation();
+    if (event.clientX > window.outerWidth/3.0) {
+      $('.commentary-box-floating').toggle();
+    } else {
+      $('.commentary-box-left').toggle();
+    }
+    toggle_img_opacity();
+  });
+  
+  var fade_image = function(index, value) {
+    var img = $('div.overlay-box img')[index];
+    if (typeof img !== 'undefined') {
+      $(img).css('opacity', value);
+    }
+  }
+  
+  
+  
+  document.ready = function() {
+    $('#area1').offset({top: 0, left: 0} );
+    position_highlights();
+    
+  };
+  
+  var SliderOnMouseOver = function(event) {
+    var scale = $('.slider').width();
+    if (scale == 0) throw "Slider width is 0. Can't establish slider value";
+    var scale_bottom = $('.slider').position().left;
+    if (event.clientX < scale_bottom || scale_bottom + scale < event.clientX ) throw "Can't establish slider value";
+    var slider_val = (event.clientX - scale_bottom)/scale;
+    fade_image(1, slider_val);
+  }
+  
+  </script>
+
+</head>
+<body>
+  <div>
+    <div class="img-box">
+      <div class="overlay-box">
+        <img class="facs-landscape" src="img/Marshall-P1-1st.png"/>
+        <img class="facs-landscape" src="img/Marshall-P1-2nd.png"/>
+      </div>
+      <div class="commentary-box-left">
+        <h3>Bibliographic Info</h3>
+        <p>Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.</p>      <h3>Commentary on the Book as a whole:</h3>
+        <p>Nulla wisi laoreet suspendisse hendrerit facilisi, mi mattis pariatur adipiscing aliquam pharetra eget. Aenean urna ipsum donec tellus tincidunt, quam curabitur metus, pretium purus facilisis enim id, integer eleifend vitae volutpat consequat per leo. [more]</p>
+      </div>
+    </div>
+    <div class="commentary-box-floating">
+      Lorem ipsum dolor sit amet, sapien etiam, nunc amet dolor ac odio mauris justo. Luctus arcu, urna praesent at id quisque ac. Arcu massa vestibulum malesuada, integer vivamus elit eu mauris eu, cum eros quis aliquam nisl wisi.</p>
+    </div>
+    <div class="slider" onmousemove="SliderOnMouseOver(event)">Overlay Slider</div>
+  <div>
+    
+</body>
+</html>
