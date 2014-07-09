@@ -14,20 +14,28 @@ puremvc.define({
         },
 
         loadDocument: function() {
-            //TODO: laod MEI document from a file
-            //this.meiDoc = ...
+            var xmlDoc = loadXMLDoc('mei/Ca9-d_22.RIDDELL-ScotsReels.music.xml');
+            this.meiDoc = new MeiLib.MeiDoc(xmlDoc);
         },
 
         initPages: function() {
-            this.pages.push( { pageId: '15', img: 'img/riddell/Ca9-d_22_015.jpg' } );
-            this.pages.push( { pageId: '16', img: 'img/riddell/Ca9-d_22_016.jpg' } );
-            this.pages.push( { pageId: '17', img: 'img/riddell/Ca9-d_22_017.jpg' } );
-            this.pages.push( { pageId: '18', img: 'img/riddell/Ca9-d_22_018.jpg' } );
-            this.pages.push( { pageId: '19', img: 'img/riddell/Ca9-d_22_019.jpg' } );
-            this.pages.push( { pageId: '20', img: 'img/riddell/Ca9-d_22_020.jpg' } );
+            var surfaces = this.meiDoc.getSurfaces();
+            for (var i=0; i<surfaces.length; ++i) {
+                var page = {};
+                page.pageId = $(surfaces[i]).attr('n');
+                page.label = $(surfaces[i]).attr('label');
+                var target = $(surfaces[i]).find('graphic').attr('target');
+                page.img = this.getPathOfTarget(target);
+                this.pages.push(page);
+            }
             this.current_page = 0;
             this.sendNotification( riddellmvc.AppConstants.PAGES_LOADED, this.pages );
             this.sendNotification( riddellmvc.AppConstants.PAGE_TURNED, this.current_page );
+        },
+
+        getPathOfTarget: function(target) {
+            var path = target.replace(/http:\/\/hms\.scot\/facsimiles/, "img/riddell/scaled/50");
+            return path;
         },
 
         /**
