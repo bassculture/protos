@@ -26,8 +26,11 @@ puremvc.define({
                 page.label = $(surfaces[i]).attr('label');
                 var target = $(surfaces[i]).find('graphic').attr('target');
                 page.img = this.getPathOfTarget(target);
+                page.imgDownScale = riddellmvc.AppConstants.IMAGE_DOWNSCALE;
+                page.zones = $(surfaces[i]).find('zone');
                 this.pages.push(page);
             }
+            console.log(this.pages);
             this.current_page = 0;
             this.sendNotification( riddellmvc.AppConstants.PAGES_LOADED, this.pages );
             this.sendNotification( riddellmvc.AppConstants.PAGE_TURNED, this.current_page );

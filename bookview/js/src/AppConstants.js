@@ -12,6 +12,13 @@
 puremvc.define({ name: 'riddellmvc.AppConstants' },{}, {
         // The multiton key for this app's single core
         CORE_NAME:                'RiddellMVC',
+
+        // An quasi-arbitrary constant. It matches the downscale applied to
+        // the images to reduce media size. It is relevant
+        // when coordinates are measured/compared to the original size
+        // (e.g. MEI zone coordinates)
+        // Should be replaced by a function to retreive the actual image scale.
+        IMAGE_DOWNSCALE: 0.5,
         
         // Notifications
         STARTUP:                  'startup',

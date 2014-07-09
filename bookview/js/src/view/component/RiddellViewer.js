@@ -3,11 +3,12 @@ puremvc.define({
         constructor: function(event) {
             // data
             this.pages = [];
+            this.current_index;
 
             // Fixed DOM elements managed by this view component
             this.bookviewApp        = document.querySelector( '#bookview-app' );
             this.main               = this.bookviewApp.querySelector( '#main' );
-            this.imgBox             = this.bookviewApp.querySelector( '#img-box' );
+            this.imgBox             = this.bookviewApp.querySelector( '.img-box' );
             this.header             = this.bookviewApp.querySelector( '#header' );
             this.pageturnPrev       = this.bookviewApp.querySelector( '#pageturn-prev' );
             this.pageturnNext       = this.bookviewApp.querySelector( '#pageturn-next' );
@@ -53,6 +54,7 @@ puremvc.define({
                   $(this.imgLandscape).css('width', "auto");
                   $(this.imgLandscape).css('height', "100%");
                 }
+                this.updateAnnotZones();
             },
 
             onClick: function(event) {
@@ -83,14 +85,55 @@ puremvc.define({
                riddellmvc.view.event.AppEvents.dispatchEvent( this.bookviewApp, event );
             },
 
+            updateAnnotZones: function() {
+                // Update zone dimensions and positions
+                var page = this.pages[this.current_index], 
+                    annot_divs, annot_div,
+                    zone_w, zone_h, zone_left, zone_top, zone_right, zone_bottom,
+                    displayedImgScale;
+
+                displayedImgScale = this.imgLandscape.width / this.imgLandscape.naturalWidth;
+                
+                annot_divs = $(this.imgBox).find('div.annot').hide(); 
+                for (var i = 0; i < page.zones.length; ++i) {
+
+                    zone_left = Number($(page.zones[i]).attr('ulx')) * page.imgDownScale;
+                    zone_top = Number($(page.zones[i]).attr('uly')) * page.imgDownScale;
+                    zone_right = Number($(page.zones[i]).attr('lrx')) * page.imgDownScale;
+                    zone_bottom = Number($(page.zones[i]).attr('lry')) * page.imgDownScale;
+                    zone_w = zone_right - zone_left;
+                    zone_h = zone_bottom - zone_top;
+
+                    if (i < annot_divs.length) {
+                        annot_div = annot_divs[i];
+                    } else {
+                        annot_div = $('<div></div>').addClass('annot'); 
+                        $(this.imgBox).append(annot_div);
+                    }
+                    $(annot_div).show();
+                    $(annot_div).width(zone_w * displayedImgScale);
+                    $(annot_div).height(zone_h * displayedImgScale);
+                    $(annot_div).offset({left: zone_left * displayedImgScale, top: zone_top * displayedImgScale});
+                }
+            },
+
             updateCurrentPage: function(current_index) {
-                $(this.imgLandscape).attr('src', this.pages[current_index].img);
+                var page = this.pages[current_index], 
+                    annot_divs, annot_div, zone_w, zone_h,
+                    zone_w, zone_h, zone_left, zone_top, zone_right, zone_bottom,
+                    displayedImgScale,
+                    me = this;
+                $(this.imgLandscape).attr('src', page.img);
                 this.updatePageNo(current_index);
+                this.imgLandscape.onload = function() {
+                    me.updateAnnotZones();
+                }
             },
 
             updatePageNo: function(current_index) {
                 var current_pageno = current_index + 1;
                 $(this.pageNo).html(current_pageno.toString() + '/' + this.pages.length.toString());
+                this.current_index = current_index;
             }, 
 
             updatePages: function(pages) {
