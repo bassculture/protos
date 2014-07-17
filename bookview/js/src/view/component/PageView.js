@@ -107,56 +107,53 @@ puremvc.define({
             resizeImage: function() {
 
                 if (this.imgLandscape) {
+                    var area, content_w, content_h, rat_h, rat_w, 
+                        box_w, bow_h, img_w, img_h, zoom_w, zoom_h, offset_x, offset_y,
+                        scale;
 
+                    offset_x = 0;
+                    offset_y = 0;
+
+                    // calculate the content area width and length by combining zones
                     if (this.zoom_mode === bookviewmvc.AppConstants.ZoomMode.NONE) {
-                        var rat_h = $(this.imgBox).height() / $(this.imgLandscape).height();
-                        var rat_w = $(this.imgBox).width() / $(this.imgLandscape).width();
-                        if (rat_w >= rat_h) {
-                          $(this.imgLandscape).css('width', "100%");
-                          $(this.imgLandscape).css('height', "auto");
-                        } else {
-                          $(this.imgLandscape).css('width', "auto");
-                          $(this.imgLandscape).css('height', "100%");
-                        }
-                        this.updateAnnotZones();
+                        content_w = this.imgLandscape.naturalWidth;
+                        content_h = this.imgLandscape.naturalHeight;
                     } else if (this.zoom_mode === bookviewmvc.AppConstants.ZoomMode.CONTENT) {
-                        var content_w, content_h, rat_h, rat_w, 
-                            box_w, bow_h, img_w, img_h, zoom_w, zoom_h, offset_x, offset_y,
-                            scale;
-                        // calculate the content area by combining zones
-                        
                         area = this.contentArea();
                         content_w = area.lrx - area.ulx;
                         content_h = area.lry - area.uly;
                         if (isNaN(content_w)) content_w = this.imgLandscape.naturalWidth;
                         if (isNaN(content_h)) content_h = this.imgLandscape.naturalHeight;
+                    }
 
-                        // resize image so that content area fits in imgBox best
-                        box_w = $(this.imgBox).width();
-                        box_h = $(this.imgBox).height();
-                        rat_w = box_w / content_w;
-                        rat_h = box_h / content_h;
+                    // resize image so that content area fits in imgBox best
+                    box_w = $(this.imgBox).width();
+                    box_h = $(this.imgBox).height();
+                    rat_w = box_w / content_w;
+                    rat_h = box_h / content_h;
 
-                        if (rat_w >= rat_h) {
-                            scale = rat_w;
-                        } else {
-                            scale = rat_h;
-                        }
-                        img_w = this.imgLandscape.naturalWidth * scale;
-                        img_h = this.imgLandscape.naturalHeight * scale;
-                        zoom_w = content_w * scale;
-                        zoom_h = content_h * scale;
+                    if (rat_w >= rat_h) {
+                        scale = rat_w;
+                    } else {
+                        scale = rat_h;
+                    }
+                    
+                    if (this.zoom_mode === bookviewmvc.AppConstants.ZoomMode.CONTENT) {
                         offset_x = -area.ulx * scale;
                         offset_y = -area.uly * scale;
-                        $(this.imgLandscape).css('width',  img_w);
-                        $(this.imgLandscape).css('height', img_h);
-                        $(this.imgLandscape).css( { left : offset_x, top : offset_y } );
-                        $(this.zoomBox).css('width',  zoom_w);
-                        $(this.zoomBox).css('height', zoom_h);
-
-                        this.updateAnnotZones();
                     }
-                }
+
+                    img_w = this.imgLandscape.naturalWidth * scale;
+                    img_h = this.imgLandscape.naturalHeight * scale;
+                    zoom_w = content_w * scale;
+                    zoom_h = content_h * scale;
+                    $(this.imgLandscape).css('width',  img_w);
+                    $(this.imgLandscape).css('height', img_h);
+                    $(this.imgLandscape).css( { left : offset_x, top : offset_y } );
+                    $(this.zoomBox).css('width',  zoom_w);
+                    $(this.zoomBox).css('height', zoom_h);
+
+                    this.updateAnnotZones();                }
 
 
 

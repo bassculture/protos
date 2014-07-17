@@ -22,7 +22,7 @@ puremvc.define({ name: 'bookviewmvc.AppConstants' },{}, {
         },
 
         ZoomMode: {
-            NONE:                 null,
+            NONE:                 'none',
             CONTENT:              'content',
         },
         
