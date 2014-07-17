@@ -84,23 +84,25 @@ puremvc.define({
                 var i, I, ulx_min, uly_min, lrx_max, lry_max, 
                     ulx, uly, lrx, lry
                     page = this.page;
-                for (i = 0, I = (!page.zones ? 0 : page.zones.length); i < I; ++i) {
-                    if (i===0) {
-                        ulx_min = Number($(page.zones[i]).attr('ulx'));
-                        uly_min = Number($(page.zones[i]).attr('uly'));
-                        lrx_max = Number($(page.zones[i]).attr('lrx'));
-                        lry_max = Number($(page.zones[i]).attr('lry'));
-                    } else {
-                        ulx_min = Math.min( ulx_min, Number($(page.zones[i]).attr('ulx')) );
-                        uly_min = Math.min( uly_min, Number($(page.zones[i]).attr('uly')) );
-                        lrx_max = Math.max( lrx_max, Number($(page.zones[i]).attr('lrx')) );
-                        lry_max = Math.max( lry_max, Number($(page.zones[i]).attr('lry')) );
+                if (page) {
+                    for (i = 0, I = (!page.zones ? 0 : page.zones.length); i < I; ++i) {
+                        if (i===0) {
+                            ulx_min = Number($(page.zones[i]).attr('ulx'));
+                            uly_min = Number($(page.zones[i]).attr('uly'));
+                            lrx_max = Number($(page.zones[i]).attr('lrx'));
+                            lry_max = Number($(page.zones[i]).attr('lry'));
+                        } else {
+                            ulx_min = Math.min( ulx_min, Number($(page.zones[i]).attr('ulx')) );
+                            uly_min = Math.min( uly_min, Number($(page.zones[i]).attr('uly')) );
+                            lrx_max = Math.max( lrx_max, Number($(page.zones[i]).attr('lrx')) );
+                            lry_max = Math.max( lry_max, Number($(page.zones[i]).attr('lry')) );
+                        }
                     }
+                    ulx_min *= page.imgDownScale;
+                    uly_min *= page.imgDownScale;
+                    lrx_max *= page.imgDownScale;
+                    lry_max *= page.imgDownScale;
                 }
-                ulx_min *= page.imgDownScale;
-                uly_min *= page.imgDownScale;
-                lrx_max *= page.imgDownScale;
-                lry_max *= page.imgDownScale;
                 return { ulx: ulx_min, uly: uly_min, lrx: lrx_max, lry: lry_max };
             },
 
@@ -194,7 +196,7 @@ puremvc.define({
                     displayedImgScale;
 
                 annot_divs = this.hideAnnotZones(); 
-                if (this.imgLandscape && this.imgLandscape.loaded) {
+                if (this.page && this.imgLandscape && this.imgLandscape.loaded) {
                     var i, I;
                     displayedImgScale = this.imgLandscape.width / this.imgLandscape.naturalWidth;
                     displayedImgPosition = $(this.imgLandscape).position();

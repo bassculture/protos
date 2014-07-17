@@ -8,84 +8,11 @@
   <script type="text/JavaScript" src="../dep-rep/m2v/src/meilib.js"></script>
   <style type="text/css"> 
 
-  .img-box {
-    width: 400px;
-    heigh: 300px;
-  }
-
-  .commentary-box-left {
-    margin: inherit;
-    position: fixed;
-    z-index: 100;
-    left:0px;
-    top:0px;
-    background-color: white;
-    opacity: 0.8;
-    width: 20%;
-    height: 95%;
-    display: none;
-  }
-
   .annot {
-    position: absolute;
     opacity: 0.15;
-    background-color: yellow;
+    /*background-color: yellow;*/
     border-width: 2px;
     border-style: dotted;
-  }
-
-  .commentary-box-floating {
-    margin: 10px;
-    position: fixed;
-    z-index: 200;
-    left: 15%;
-    top:10%;
-    background-color: white;
-    opacity: 0.85;
-    width: 70%;
-    height: 50%;  
-    display: none;
-  }
-  
-  .highlight {
-    opacity: 0.2;
-    background-color: brown;
-    z-index: 110;
-  }
-
-  #area1 {
-    width: 300px;
-    height: 20px;
-  }
-
-  #area2 {
-    width: 100px;
-    height: 80px;
-  }
-
-  #header {
-      position: absolute;
-      /*opacity: 0.8;*/
-      color: grey;
-      z-index: 2000;
-      width: 100%;
-      text-align: center;
-  }
-
-  .pagination-div {
-      position: static;
-      z-index: 1000;
-      color: grey;
-      /*opacity: 0.8;*/
-      width: 100%;
-      padding: 5px;
-  }
-
-  #title {
-      display: none;
-      position: static;
-      font-weight: bold;
-      font-size: 1.5em;
   }
 
   div#preloader, 
@@ -98,8 +25,11 @@
 
 </head>
 <body>
-  <div id="pv-1">
-  <div>
+  <div id="page-view">
+<!--     <div class="img-box">
+      <img id="landscape" src="img/riddell/Ca9-d_22_015.jpg"/>
+    </div>
+ -->  <div>
   <div id="preloader">
     <img id="pg-15" src="img/riddell/scaled/50/Ca9-d_22_015.jpg"/>
     <img id="pg-16" src="img/riddell/scaled/50/Ca9-d_22_016.jpg"/>
@@ -148,13 +78,14 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() 
     {
-        var pageview = new bookviewmvc.Tests.PageView( { 
-          div:document.getElementById('pv-1'),
-          size_mode: bookviewmvc.AppConstants.PageViewSize.FIXED,
-          filename: 'mei/Ca9-d_22.RIDDELL-ScotsReels.music.xml',
+        var app = new bookviewmvc.Tests.PageView( { 
+          div: document.getElementById('page-view'), 
+          zoom_mode: bookviewmvc.AppConstants.ZoomMode.NONE,
+          filename: 'mei/portrait.test.music.xml',
+          path: 'img',
         } );
-        pageview.facade.sendNotification( bookviewmvc.AppConstants.PAGETURN_ACTION, bookviewmvc.AppConstants.NEXT_PAGE );
 
+        // app.facade.sendNotification( bookviewmvc.AppConstants.PAGETURN_ACTION, bookviewmvc.AppConstants.NEXT_PAGE );
     });
     </script>
 

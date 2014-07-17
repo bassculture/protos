@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="odd/schemata/mei-all_anyStart.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="odd/schemata/mei-all_anyStart.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<music xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.music-encoding.org/ns/mei"
+	meiversion="2013">
+	<facsimile>
+		<surface xml:id="edirom_surface_6f9f12c5-451d-4b7f-ae1e-ba105c2fdd7b" n="17" label="page_1">
+			<graphic target="http://hms.scot/facsimiles/Portrait.P01.png" xml:id="edirom_graphic_d4817c56-9f1e-45c0-b599-413da4130e3a" type="facsimile"/>
+		</surface>
+		<surface xml:id="edirom_surface_24a2ed9e-5d67-442a-ab9b-3ffa1ab5b92e" n="18" label="page_2">
+			<graphic target="http://hms.scot/facsimiles/Portrait.P02.png" xml:id="edirom_graphic_682780ad-b298-4f4e-93d2-6aefb7ac5735" type="facsimile"/>
+		</surface>
+	</facsimile>
+</music>

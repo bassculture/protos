@@ -1,47 +1,57 @@
 puremvc.define({
         name: 'bookviewmvc.model.proxy.BookProxy',
-        parent: puremvc.Proxy
+        parent: puremvc.Proxy,
     },
 
     // INSTANCE MEMBERS
     {
         meiDoc: null, //will hold the MEI Document; first as an XML Doc, later as an MEIDoc abstraction
         pages: [],
+        current_page: null,
+        base_path: "img/riddell/scaled/50",
 
         onRegister: function() {
+            if (this.data && this.data.path) {
+                this.base_path = this.data.path;
+            }
             this.loadDocument();
             this.initPages();
         },
 
         loadDocument: function() {
-            var xmlDoc = loadXMLDoc('mei/Ca9-d_22.RIDDELL-ScotsReels.music.xml');
-            this.meiDoc = new MeiLib.MeiDoc(xmlDoc);
+            if (this.data && this.data.filename) {
+                var xmlDoc = loadXMLDoc(this.data.filename);
+                this.meiDoc = new MeiLib.MeiDoc(xmlDoc);
+            }
         },
 
         initPages: function() {
-            var surfaces = this.meiDoc.getSurfaces();
-            for (var i=0; i<surfaces.length; ++i) {
-                var page = {};
-                page.pageId = $(surfaces[i]).attr('n');
-                page.label = $(surfaces[i]).attr('label');
-                var target = $(surfaces[i]).find('graphic').attr('target');
-                page.img = this.getPathOfTarget(target);
-                page.imgDownScale = bookviewmvc.AppConstants.IMAGE_DOWNSCALE;
-                page.zones = $(surfaces[i]).find('zone');
-                this.pages.push(page);
-            }
-            console.log(this.pages);
-            this.current_page = 0;
-            this.sendNotification( bookviewmvc.AppConstants.PAGES_LOADED, this.pages );
-            this.sendNotification( bookviewmvc.AppConstants.PAGE_TURNED, { 
-                page_index: this.current_page, 
-                page: this.pages[this.current_page] 
-            });
+            if (this.meiDoc) {
+                var surfaces = this.meiDoc.getSurfaces();
+                for (var i=0; i<surfaces.length; ++i) {
+                    var page = {};
+                    page.pageId = $(surfaces[i]).attr('n');
+                    page.label = $(surfaces[i]).attr('label');
+                    var target = $(surfaces[i]).find('graphic').attr('target');
+                    page.img = this.getPathOfTarget(target);
+                    page.imgDownScale = bookviewmvc.AppConstants.IMAGE_DOWNSCALE;
+                    page.zones = $(surfaces[i]).find('zone');
+                    this.pages.push(page);
+                }
+                console.log(this.pages);
+                this.current_page = 0;
+                this.sendNotification( bookviewmvc.AppConstants.PAGES_LOADED, this.pages );
+                this.sendNotification( bookviewmvc.AppConstants.PAGE_TURNED, { 
+                    page_index: this.current_page, 
+                    page: this.pages[this.current_page] 
+                });
+            };
+
         },
 
         getPathOfTarget: function(target) {
-            var path = target.replace(/http:\/\/hms\.scot\/facsimiles/, "img/riddell/scaled/50");
-            return path;
+            var targetpath = target.replace(/http:\/\/hms\.scot\/facsimiles/, this.base_path);
+            return targetpath;
         },
 
         /**
@@ -94,10 +104,15 @@ puremvc.define({
                 console.log( "[RiddellBookProxy] WARNING: Can't go to page '" + gotoPage.toString() + "'" );
             }
             console.log( this.pages[this.current_page] );
-            this.sendNotification( bookviewmvc.AppConstants.PAGE_TURNED, { 
-                page_index: this.current_page, 
-                page: this.pages[this.current_page] 
-            });
+            if (typeof this.current_page === 'number') {
+                var page = this.pages[this.current_page];  
+                if (page) {
+                    this.sendNotification( bookviewmvc.AppConstants.PAGE_TURNED, { 
+                        page_index: this.current_page, 
+                        page: page, 
+                    });
+                }              
+            }
         },
 
         /**

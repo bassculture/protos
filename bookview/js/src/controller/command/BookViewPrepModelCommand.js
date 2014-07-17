@@ -10,7 +10,7 @@ puremvc.define({
          * @override
          */
         execute: function (note) {
-            this.facade.registerProxy( new bookviewmvc.model.proxy.BookProxy() );
+            this.facade.registerProxy( new bookviewmvc.model.proxy.BookProxy( null, note.body ) );
         }
     }    
 );

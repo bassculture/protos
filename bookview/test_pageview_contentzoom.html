@@ -46,7 +46,7 @@
     <script src="assets/director-1.1.6.min.js"></script>
 
     <!-- PUREMVC LIBRARY -->
-    <script src="js/libs/puremvc-1.0.1.min.js"></script>
+    <script src="js/libs/puremvc-1.0.1.js"></script>
 
     <!-- APPLICATION CONSTANTS -->
     <script src="js/src/BookViewConstants.js"></script>
@@ -78,7 +78,11 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() 
     {
-        var app = new bookviewmvc.Tests.PageView( { div: document.getElementById('page-view'), zoom_mode: bookviewmvc.AppConstants.ZoomMode.CONTENT } );
+        var app = new bookviewmvc.Tests.PageView( { 
+          div: document.getElementById('page-view'),
+          zoom_mode: bookviewmvc.AppConstants.ZoomMode.CONTENT,
+          filename: 'mei/Ca9-d_22.RIDDELL-ScotsReels.music.xml',
+        } );
 
         app.facade.sendNotification( bookviewmvc.AppConstants.PAGETURN_ACTION, bookviewmvc.AppConstants.NEXT_PAGE );
     });
