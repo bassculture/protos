@@ -1,0 +1,88 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+  <script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+  <script type="text/JavaScript" src="loadXMLDoc.js"></script>
+  <script type="text/JavaScript" src="../dep-rep/m2v/src/meilib.js"></script>
+  <style type="text/css"> 
+
+  .annot {
+    opacity: 0.15;
+    /*background-color: yellow;*/
+    border-width: 2px;
+    border-style: dotted;
+  }
+
+  div#preloader, 
+  div#preloader img {
+    visibility: hidden;
+    display: none;
+  }
+
+  </style>
+
+</head>
+<body>
+  <div id="page-view">
+<!--     <div class="img-box">
+      <img id="landscape" src="img/riddell/Ca9-d_22_015.jpg"/>
+    </div>
+ -->  <div>
+  <div id="preloader">
+    <img id="pg-15" src="img/riddell/scaled/50/Ca9-d_22_015.jpg"/>
+    <img id="pg-16" src="img/riddell/scaled/50/Ca9-d_22_016.jpg"/>
+    <img id="pg-17" src="img/riddell/scaled/50/Ca9-d_22_017.jpg"/>
+    <img id="pg-18" src="img/riddell/scaled/50/Ca9-d_22_018.jpg"/>
+    <img id="pg-19" src="img/riddell/scaled/50/Ca9-d_22_019.jpg"/>
+    <img id="pg-20" src="img/riddell/scaled/50/Ca9-d_22_020.jpg"/>
+  </div>
+
+    <!-- JQUERY -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- FLATIRION DIRECTOR ROUTING LIBRARY -->
+    <script src="assets/director-1.1.6.min.js"></script>
+
+    <!-- PUREMVC LIBRARY -->
+    <script src="js/libs/puremvc-1.0.1.min.js"></script>
+
+    <!-- APPLICATION CONSTANTS -->
+    <script src="js/src/BookViewConstants.js"></script>
+
+    <!-- PROXIES -->
+    <script src="js/src/model/proxy/BookProxy.js"></script>
+
+    <!-- EVENTS -->
+    <script src="js/src/view/event/BookViewEvents.js"></script>
+
+    <!-- VIEW COMPONENTS -->
+    <script src="js/src/view/component/PageView.js"></script>
+        
+    <!-- MEDIATORS -->
+    <script src="js/src/view/mediator/PageViewMediator.js"></script>
+
+    <!-- COMMANDS -->
+    <script src="js/src/controller/command/BookViewStartupCommand.js"></script>
+    <script src="js/src/controller/command/BookViewPrepControllerCommand.js"></script>
+    <script src="js/src/controller/command/BookViewPrepModelCommand.js"></script>
+    <script src="js/src/controller/command/BookViewPrepViewCommand.js"></script>
+    <script src="js/src/controller/command/BookViewPageturnCommand.js"></script>
+
+
+    <!-- APPLICATION -->
+    <script src="js/src/bookview_tests.js"></script>
+
+    <!-- START THE APPLICATION -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() 
+    {
+        var app = new bookviewmvc.Tests.PageView( { div: document.getElementById('page-view'), zoom_mode: bookviewmvc.AppConstants.ZoomMode.CONTENT } );
+
+        app.facade.sendNotification( bookviewmvc.AppConstants.PAGETURN_ACTION, bookviewmvc.AppConstants.NEXT_PAGE );
+    });
+    </script>
+
+</body>
+</html>
