@@ -84,8 +84,7 @@ puremvc.define({
                 var i, I, ulx_min, uly_min, lrx_max, lry_max, 
                     ulx, uly, lrx, lry
                     page = this.page;
-
-                for (var i = 0, I = page.zones.length; i < I; ++i) {
+                for (i = 0, I = (!page.zones ? 0 : page.zones.length); i < I; ++i) {
                     if (i===0) {
                         ulx_min = Number($(page.zones[i]).attr('ulx'));
                         uly_min = Number($(page.zones[i]).attr('uly'));
@@ -129,6 +128,8 @@ puremvc.define({
                         area = this.contentArea();
                         content_w = area.lrx - area.ulx;
                         content_h = area.lry - area.uly;
+                        if (isNaN(content_w)) content_w = this.imgLandscape.naturalWidth;
+                        if (isNaN(content_h)) content_h = this.imgLandscape.naturalHeight;
 
                         // resize image so that content area fits in imgBox best
                         box_w = $(this.imgBox).width();
@@ -197,10 +198,11 @@ puremvc.define({
 
                 annot_divs = this.hideAnnotZones(); 
                 if (this.imgLandscape && this.imgLandscape.loaded) {
+                    var i, I;
                     displayedImgScale = this.imgLandscape.width / this.imgLandscape.naturalWidth;
                     displayedImgPosition = $(this.imgLandscape).position();
                         
-                    for (var i = 0; i < page.zones.length; ++i) {
+                    for (i = 0, I = (!page.zones ? 0 : page.zones.length); i < I; ++i) {
 
                         zone_left = Number($(page.zones[i]).attr('ulx')) * page.imgDownScale;
                         zone_top = Number($(page.zones[i]).attr('uly')) * page.imgDownScale;
