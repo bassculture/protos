@@ -12,11 +12,11 @@ puremvc.define({
                 this.div                = this.params.div;
                 this.imgBox             = $('<div></div>').addClass('img-box').get(0);
                 this.zoomBox            = $('<div></div>').addClass('zoom-box').get(0);
-                this.imgLandscape       = $('<img></img>').addClass('landscape').get(0);
+                this.img       = $('<img></img>').addClass('landscape').get(0);
                 
                 $(this.div).append(this.imgBox);
                 $(this.imgBox).append(this.zoomBox);
-                $(this.zoomBox).append(this.imgLandscape);
+                $(this.zoomBox).append(this.img);
 
                 $(this.div).css({
                     height: "100%",
@@ -29,7 +29,6 @@ puremvc.define({
 
 
                 $(this.imgBox).css({
-                    position: 'relative',
                     padding: '10px',
                     border: '5px solid blue', 
                 }).
@@ -49,7 +48,7 @@ puremvc.define({
                     css('-moz-box-sizing', 'border-box').
                     css('-webkit-box-sizing', 'border-box');
                 
-                $(this.imgLandscape).
+                $(this.img).
                     css('width', '100%').
                     css('position', 'absolute').
                     css('box-sizing', 'border-box').
@@ -67,8 +66,8 @@ puremvc.define({
                         this.component.onResizeWindow( event );
                 });
 
-                this.imgLandscape.component = this;
-                bookviewmvc.view.event.AppEvents.addEventListener( this.imgLandscape, 'load', function( event ) {
+                this.img.component = this;
+                bookviewmvc.view.event.AppEvents.addEventListener( this.img, 'load', function( event ) {
                     this.loaded = true;
                     this.component.updateAnnotZones( event );
                     this.component.resizeImgBox();
@@ -118,7 +117,7 @@ puremvc.define({
 
             resizeImage: function() {
 
-                if (this.imgLandscape) {
+                if (this.img) {
                     var area, content_w, content_h, rat_h, rat_w, 
                         box_w, bow_h, img_w, img_h, zoom_w, zoom_h, offset_x, offset_y,
                         scale;
@@ -128,14 +127,14 @@ puremvc.define({
 
                     // calculate the content area width and length by combining zones
                     if (this.zoom_mode === bookviewmvc.AppConstants.ZoomMode.NONE) {
-                        content_w = this.imgLandscape.naturalWidth;
-                        content_h = this.imgLandscape.naturalHeight;
+                        content_w = this.img.naturalWidth;
+                        content_h = this.img.naturalHeight;
                     } else if (this.zoom_mode === bookviewmvc.AppConstants.ZoomMode.CONTENT) {
                         area = this.contentArea();
                         content_w = area.lrx - area.ulx;
                         content_h = area.lry - area.uly;
-                        if (isNaN(content_w)) content_w = this.imgLandscape.naturalWidth;
-                        if (isNaN(content_h)) content_h = this.imgLandscape.naturalHeight;
+                        if (isNaN(content_w)) content_w = this.img.naturalWidth;
+                        if (isNaN(content_h)) content_h = this.img.naturalHeight;
                     }
 
                     // resize image so that content area fits in imgBox best
@@ -155,13 +154,13 @@ puremvc.define({
                         offset_y = -area.uly * scale;
                     }
 
-                    img_w = this.imgLandscape.naturalWidth * scale;
-                    img_h = this.imgLandscape.naturalHeight * scale;
+                    img_w = this.img.naturalWidth * scale;
+                    img_h = this.img.naturalHeight * scale;
                     zoom_w = content_w * scale;
                     zoom_h = content_h * scale;
-                    $(this.imgLandscape).css('width',  img_w);
-                    $(this.imgLandscape).css('height', img_h);
-                    $(this.imgLandscape).css( { left : offset_x, top : offset_y } );
+                    $(this.img).css('width',  img_w);
+                    $(this.img).css('height', img_h);
+                    $(this.img).css( { left : offset_x, top : offset_y } );
                     $(this.zoomBox).css('width',  zoom_w);
                     $(this.zoomBox).css('height', zoom_h);
 
@@ -206,10 +205,10 @@ puremvc.define({
                     displayedImgScale;
 
                 annot_divs = this.hideAnnotZones(); 
-                if (this.page && this.imgLandscape && this.imgLandscape.loaded) {
+                if (this.page && this.img && this.img.loaded) {
                     var i, I;
-                    displayedImgScale = this.imgLandscape.width / this.imgLandscape.naturalWidth;
-                    displayedImgPosition = $(this.imgLandscape).position();
+                    displayedImgScale = this.img.width / this.img.naturalWidth;
+                    displayedImgPosition = $(this.img).position();
                         
                     for (i = 0, I = (!page.zones ? 0 : page.zones.length); i < I; ++i) {
 
@@ -244,9 +243,9 @@ puremvc.define({
                 var me = this;
                 this.page = note.page;
                 this.hideAnnotZones();
-                if (this.imgLandscape) {
-                    this.imgLandscape.loaded = false;
-                    $(this.imgLandscape).attr('src', this.page.img);
+                if (this.img) {
+                    this.img.loaded = false;
+                    $(this.img).attr('src', this.page.img);
                 }
             },
     },
