@@ -11,7 +11,7 @@ puremvc.define({
             if (this.params.div) {
                 this.div                = this.params.div;
                 this.imgBox             = $('<div></div>').addClass('img-box').get(0);
-                this.zoomBox             = $('<div></div>').addClass('zoom-box').get(0);
+                this.zoomBox            = $('<div></div>').addClass('zoom-box').get(0);
                 this.imgLandscape       = $('<img></img>').addClass('landscape').get(0);
                 
                 $(this.div).append(this.imgBox);
@@ -23,16 +23,21 @@ puremvc.define({
                     width: "100%",
                     padding: '10px',
                     border: '5px solid red',
-                }).css('box-sizing', 'border-box');
+                }).css('box-sizing', 'border-box')
+                  .css('-moz-box-sizing', 'border-box')
+                  .css('-webkit-box-sizing', 'border-box');
+
 
                 $(this.imgBox).css({
                     position: 'relative',
-                    padding: '5px',
+                    padding: '10px',
                     border: '5px solid blue', 
                 }).
                     css('overflow-x', 'auto').
                     css('overflow-y', 'auto').
-                    css('box-sizing', 'border-box');
+                    css('box-sizing', 'border-box').
+                    css('-moz-box-sizing', 'border-box').
+                    css('-webkit-box-sizing', 'border-box');
                 
                 $(this.zoomBox).css({
                     position: 'relative',
@@ -40,11 +45,16 @@ puremvc.define({
                 }).
                     css('overflow-x', 'hidden').
                     css('overflow-y', 'hidden').
-                    css('box-sizing', 'border-box');
+                    css('box-sizing', 'border-box').
+                    css('-moz-box-sizing', 'border-box').
+                    css('-webkit-box-sizing', 'border-box');
                 
                 $(this.imgLandscape).
                     css('width', '100%').
-                    css('position', 'absolute');
+                    css('position', 'absolute').
+                    css('box-sizing', 'border-box').
+                    css('-moz-box-sizing', 'border-box').
+                    css('-webkit-box-sizing', 'border-box');
 
                 // Event listeners for fixed UI elements
                 this.div.component = this;
@@ -214,7 +224,7 @@ puremvc.define({
                             annot_div = annot_divs[i];
                         } else {
                             annot_div = $('<div></div>').addClass('annot').css({ position: 'absolute' }); 
-                            $(this.imgBox).append(annot_div);
+                            $(this.zoomBox).append(annot_div);
                         }
                         $(annot_div).show();
                         $(annot_div).width(zone_w * displayedImgScale);
