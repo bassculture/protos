@@ -4,7 +4,7 @@ puremvc.define({
             // data
             this.params = params || {};
             this.page;
-            this.size_mode = this.params.size_mode || bookviewmvc.AppConstants.PageViewSize.FILL_WINDOW;
+            this.size_mode = this.params.size_mode || bookviewmvc.AppConstants.PageViewSize.FILL;
             this.zoom_mode = this.params.zoom_mode || bookviewmvc.AppConstants.ZoomMode.CONTENT;
 
             // Fixed DOM elements managed by this view component
@@ -80,12 +80,12 @@ puremvc.define({
     // INSTANCE MEMBERS
     {
             resizeImgBox: function() {
-                if (this.size_mode === bookviewmvc.AppConstants.PageViewSize.FILL_WINDOW) {
+                if (this.size_mode === bookviewmvc.AppConstants.PageViewSize.FILL) {
                     $(this.imgBox).css({
                         height: "100%",
                         width: "100%",
                     });
-                } else if(this.size_mode === bookviewmvc.AppConstants.PageViewSize.FIXED) {
+                } else if(this.size_mode === bookviewmvc.AppConstants.PageViewSize.FIT) {
                 }
             },
 
@@ -164,7 +164,8 @@ puremvc.define({
                     $(this.zoomBox).css('width',  zoom_w);
                     $(this.zoomBox).css('height', zoom_h);
 
-                    this.updateAnnotZones();                }
+                    this.updateAnnotZones();
+                }
 
 
 

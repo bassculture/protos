@@ -16,9 +16,8 @@ puremvc.define({ name: 'bookviewmvc.AppConstants' },{}, {
         IMAGE_DOWNSCALE: 0.5,
 
         PageViewSize: { 
-            FIXED:                'fixed',
-            FILL_WINDOW:          'fill_window',
-            INHERIT:              'inherit',
+            FILL:                 'fill_container',
+            FIT:                  'fit_container',
         },
 
         ZoomMode: {
