@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="odd/schemata/mei-all_anyStart.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="odd/schemata/mei-all_anyStart.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<music xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.music-encoding.org/ns/mei"
+	meiversion="2013">
+	<facsimile>
+		<surface xml:id="edirom_surface_6f9f12c5-451d-4b7f-ae1e-ba105c2fdd7b" n="17" label="page_1">
+			<graphic target="http://hms.scot/facsimiles/Ca9-d_22_017.jpg" xml:id="edirom_graphic_d4817c56-9f1e-45c0-b599-413da4130e3a" type="facsimile"/>
+			<zone xml:id="edirom_zone_d362e565-f9b5-4309-baa8-728206f98242" type="tune" ulx="689" uly="290" lrx="3228" lry="2055"/>
+		</surface>
+		<surface xml:id="edirom_surface_24a2ed9e-5d67-442a-ab9b-3ffa1ab5b92e" n="18" label="page_2">
+			<graphic target="http://hms.scot/facsimiles/Ca9-d_22_018.jpg" xml:id="edirom_graphic_682780ad-b298-4f4e-93d2-6aefb7ac5735" type="facsimile"/>
+			<zone xml:id="edirom_zone_3d0aa53b-da35-4f06-87d0-03bac6036339" type="tune" ulx="388" uly="284" lrx="3015" lry="1605"/>
+			<zone xml:id="edirom_zone_17500f68-ce60-4a8b-a173-8550abbed6bf" type="tune" ulx="430" uly="1605" lrx="2937" lry="2143"/>
+		</surface>
+		<surface xml:id="edirom_surface_a231beab-2abc-471a-9f3e-9e46f8236ce3" n="19" label="page_3">
+			<graphic target="http://hms.scot/facsimiles/Ca9-d_22_019.jpg" xml:id="edirom_graphic_422003e6-5bef-42de-80e0-cd969bc0c82d" type="facsimile"/>
+			<zone xml:id="edirom_zone_e2c66c30-9d60-4cd5-ba39-952d3bda9b12" type="tune" ulx="670" uly="302" lrx="3236" lry="708"/>
+			<zone xml:id="edirom_zone_579849c7-f262-4109-a0e0-a0d9ae04e3f8" type="tune" ulx="728" uly="708" lrx="3236" lry="2117"/>
+		</surface>
+		<surface xml:id="edirom_surface_9932f960-6038-44ea-aead-6e39de1a70b1" n="20" label="page_4">
+			<graphic target="http://hms.scot/facsimiles/Ca9-d_22_020.jpg"  xml:id="edirom_graphic_2e46aa97-d753-4b03-be71-f17484926e4f" type="facsimile"/>
+			<zone xml:id="edirom_zone_b60508c1-2427-4c35-93db-ce9873282cfa" type="tune" ulx="465" uly="265" lrx="3026" lry="1590"/>
+			<zone xml:id="edirom_zone_45f21c7b-2f57-479e-a978-b1396466b0fd" type="tune" ulx="488" uly="1574" lrx="2992" lry="2119"/>
+		</surface>
+		<surface xml:id="edirom_surface_fc4fd753-b610-4e7f-a06a-fe905223a3e9" n="21" label="page_5">
+			<graphic target="http://hms.scot/facsimiles/Ca9-d_22_021.jpg" xml:id="edirom_graphic_1ce9c991-ff38-4d53-be79-5224c582569f" type="facsimile"/>
+			<zone xml:id="edirom_zone_30a5473c-1f07-48d9-bd8e-76478abf578b" type="tune" ulx="701" uly="333" lrx="3225" lry="1177"/>
+			<zone xml:id="edirom_zone_52656b7a-a6b4-4a54-b588-7ac65c9ed71a" type="tune" ulx="670" uly="1153" lrx="3205" lry="2128"/>
+		</surface>
+	</facsimile>
+	
+	<group>
+		<music n="tune_1" label="Lady Crawford's Minuet">
+			<body>
+				<mdiv type="tune" facs="#edirom_zone_d362e565-f9b5-4309-baa8-728206f98242">
+					<score>
+						<scoreDef meter.count="3" meter.unit="4" page.botmar="12.7mm" page.height="297mm" page.leftmar="12.7mm" page.rightmar="12.7mm" page.topmar="12.7mm" page.width="210mm" ppq="256">
+							<staffGrp>
+								<staffGrp n="1" symbol="brace">
+									<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="2s" label="Piano" lines="5" n="1" xml:id="sd1"/>
+									<staffDef clef.line="4" clef.shape="F" key.mode="major" key.sig="2s" label="Piano" lines="5" n="2" xml:id="sd2"/>
+								</staffGrp>
+							</staffGrp>
+						</scoreDef>
+						<section type="strain" n="1">
+							<section type="incipit">
+								<measure label="1" n="1">
+									<anchoredText>Lady Crawfurd's Minuet</anchoredText>
+									<staff n="1">
+										<layer n="1">
+											<note dur="8" dur.ges="128p" grace="acc" ho="-3.1172mm" oct="5" ornam="A" pname="g" xml:id="p1cgd5n0g0v1b1s1"/>
+											<note dur="2" dur.ges="512p" oct="5" pname="f" xml:id="p1cfd5n0v1b1s1"/>
+											<beam>
+												<note dur="16" dur.ges="64p" oct="5" pname="e" xml:id="p1ced5n512v1b1s1"/>
+												<note dur="16" dur.ges="64p" oct="5" pname="f" xml:id="p1cfd5n576v1b1s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="g" xml:id="p1cgd5n640v1b1s1"/>
+											</beam>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n0v1b1s2"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n256v1b1s2"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="c" xml:id="p1ccd4n512v1b1s2"/>
+										</layer>
+									</staff>
+									<trill dur.ges="0p" staff="1" tstamp="1" vo="7mm"/>
+									<slur dur.ges="128p" ho="0.6562mm" layer="1" staff="1" tstamp="3" vo="6.3984mm"/>
+								</measure>
+								<measure n="2">
+									<staff n="1">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="5" pname="f" xml:id="p1cfd5n0v1b2s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="e" xml:id="p1ced5n128v1b2s1"/>
+											</beam>
+											<note dur="4" dur.ges="256p" oct="5" pname="d" xml:id="p1cdd5n256v1b2s1"/>
+											<note dur="4" dur.ges="256p" oct="5" pname="e" xml:id="p1ced5n512v1b2s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n0v1b2s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="f" xml:id="p1cfd3n256v1b2s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="a" xml:id="p1cad3n512v1b2s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+							<section type="cadence">
+								<measure n="4">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="5" pname="f" xml:id="p1cfd5n0v1b4s1"/>
+											<note dur="2" dur.ges="512p" oct="5" pname="e" xml:id="p1ced5n256v1b4s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="3" pname="a" xml:id="p1cad3n0v1b4s2"/>
+											<note dur="2" dur.ges="512p" oct="2" pname="a" xml:id="p1cad2n256v1b4s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+						</section>
+						<section type="strain" n="2">
+							<section type="incipit">
+								<measure n="5" right="rptstart">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="5" pname="d" xml:id="p1cdd5n0v1b5s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n256v1b5s1"/>
+											<beam>
+												<note dur="16" dur.ges="64p" oct="4" pname="a" xml:id="p1cad4n512v1b5s1"/>
+												<note dur="16" dur.ges="64p" oct="4" pname="b" xml:id="p1cbd4n576v1b5s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="c" xml:id="p1ccd5n640v1b5s1">
+													<accid accid="n"/>
+												</note>
+											</beam>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="3" pname="f" xml:id="p1cfd3n0v1b5s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="f" xml:id="p1cfd3n256v1b5s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="f" xml:id="p1cfd3n512v1b5s2"/>
+										</layer>
+									</staff>
+									<slur dur.ges="128p" ho="0.7109mm" layer="1" staff="1" tstamp="3" vo="5.5234mm"/>
+								</measure>
+								<measure n="6">
+									<staff n="1">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="b" xml:id="p1cbd4n0v1b6s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="g" xml:id="p1cgd4n128v1b6s1"/>
+												<note dur="16" dur.ges="64p" oct="4" pname="f" xml:id="p1cfd4n640v1b6s1"/>
+												<note dur="16" dur.ges="64p" oct="4" pname="g" xml:id="p1cgd4n704v1b6s1"/>
+											</beam>
+											<note dots="1" dur="4" dur.ges="384p" oct="4" pname="g" xml:id="p1cgd4n256v1b6s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="g" xml:id="p1cgd3n0v1b6s2"/>
+											<note dur="4" dur.ges="256p" oct="2" pname="g" xml:id="p1cgd2n512v1b6s2"/>
+										</layer>
+									</staff>
+									<slur dur.ges="128p" ho="1.3125mm" layer="1" staff="1" tstamp="1" vo="7.2734mm"/>
+									<slur dur.ges="448p" ho="1.4766mm" layer="1" staff="1" tstamp="2" vo="7.9297mm"/>
+									<trill dur.ges="10p" staff="1" tstamp="2" vo="7mm"/>
+								</measure>
+							</section>
+							<section type="cadence">
+								<ending n="1">
+									<measure n="8" right="rptend">
+										<staff n="1">
+											<layer n="1">
+												<note dots="1" dur="2" dur.ges="768p" oct="5" pname="d" xml:id="p1cdd5n0v1b8s1"/>
+											</layer>
+										</staff>
+										<staff n="2">
+											<layer n="1">
+												<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n0v1b8s2"/>
+												<beam>
+													<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n256v1b8s2"/>
+													<note dur="8" dur.ges="128p" oct="3" pname="g" xml:id="p1cgd3n384v1b8s2"/>
+												</beam>
+												<beam>
+													<note dur="8" dur.ges="128p" oct="3" pname="f" xml:id="p1cfd3n512v1b8s2"/>
+													<note dur="8" dur.ges="128p" oct="3" pname="e" xml:id="p1ced3n640v1b8s2"/>
+												</beam>
+											</layer>
+										</staff>
+									</measure>
+								</ending>
+								<ending n="2">
+									<measure n="9" right="rptstart">
+										<staff n="1">
+											<layer n="1">
+												<note dur="2" dur.ges="512p" oct="5" pname="d" xml:id="p1cdd5n0v1b9s1"/>
+												<note dur="4" dur.ges="256p" oct="5" pname="d" xml:id="p1cdd5n512v1b9s1"/>
+											</layer>
+										</staff>
+										<staff n="2">
+											<layer n="1">
+												<note dots="1" dur="2" dur.ges="768p" oct="3" pname="d" xml:id="p1cdd3n0v1b9s2"/>
+											</layer>
+										</staff>
+									</measure>
+								</ending>
+							</section>
+						</section>
+						<section type="strain" n="3">
+							<section type="incipit">
+								<measure n="10">
+									<staff n="1">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n0v1b10s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n128v1b10s1"/>
+											</beam>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n256v1b10s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="f" xml:id="p1cfd4n512v1b10s1"/>
+										</layer>
+										<layer n="2">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n0v2b10s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n128v2b10s1"/>
+											</beam>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n256v2b10s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n512v2b10s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="d" xml:id="p1cdd3n0v1b10s2"/>
+											<note dur="4" dur.ges="256p" oct="2" pname="d" xml:id="p1cdd2n512v1b10s2"/>
+										</layer>
+									</staff>
+								</measure>
+								<measure n="11">
+									<staff n="1">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n0v1b11s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n128v1b11s1"/>
+											</beam>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n256v1b11s1"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="a" xml:id="p1cad3n512v1b11s1"/>
+										</layer>
+										<layer n="2">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n0v2b11s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n128v2b11s1"/>
+											</beam>
+											<note dur="4" dur.ges="256p" oct="4" pname="d" xml:id="p1cdd4n256v2b11s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="d" xml:id="p1cdd3n0v1b11s2"/>
+											<rest dur="4" dur.ges="256p" xml:id="p1r512v1b11s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+							<section type="cadence">
+								<measure n="13" right="rptend">
+									<staff n="1">
+										<layer n="1">
+											<chord dur="2" dur.ges="512p">
+												<note dur="2" dur.ges="512p" oct="3" pname="a" xml:id="p1cad3n0v1b13s1"/>
+												<note dur="2" dur.ges="512p" oct="4" pname="a" xml:id="p2cad4n0v1b13s1"/>
+											</chord>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="2" pname="a" xml:id="p1cad2n0v1b13s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+						</section>
+						<section type="strain" n="4">
+							<section type="incipit">
+								<measure n="14" right="rptstart">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n512v1b14s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<rest dur="4" dur.ges="256p" xml:id="p1r512v1b14s2"/>
+										</layer>
+									</staff>
+								</measure>
+								<measure n="15">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="5" pname="d" xml:id="p1cdd5n0v1b15s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n256v1b15s1"/>
+											<beam>
+												<note dur="16" dur.ges="64p" oct="4" pname="a" xml:id="p1cad4n512v1b15s1"/>
+												<note dur="16" dur.ges="64p" oct="4" pname="b" xml:id="p1cbd4n576v1b15s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="c" xml:id="p1ccd5n640v1b15s1">
+													<accid accid="n"/>
+												</note>
+											</beam>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n0v1b15s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="f" xml:id="p1cfd3n256v1b15s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n512v1b15s2"/>
+										</layer>
+									</staff>
+									<slur dur.ges="128p" layer="1" staff="1" tstamp="3"/>
+								</measure>
+								<measure n="16">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="b" xml:id="p1cbd4n0v1b16s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="b" xml:id="p1cbd4n256v1b16s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="b" xml:id="p1cbd4n512v1b16s1"/>
+										</layer>
+										<layer n="2">
+											<note dur="4" dur.ges="256p" oct="4" pname="g" xml:id="p1cgd4n256v2b16s1"/>
+											<note dur="4" dur.ges="256p" oct="4" pname="g" xml:id="p1cgd4n512v2b16s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="g" xml:id="p1cgd3n0v1b16s2"/>
+											<note dur="4" dur.ges="256p" oct="2" pname="g" xml:id="p1cgd2n512v1b16s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+							<section type="cadence">
+								<ending n="1">
+									<measure n="18" right="rptend">
+										<staff n="1">
+											<layer n="1">
+												<note dots="1" dur="2" dur.ges="768p" oct="5" pname="d" xml:id="p1cdd5n0v1b18s1"/>
+											</layer>
+										</staff>
+										<staff n="2">
+											<layer n="1">
+												<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n0v1b18s2"/>
+												<beam>
+													<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n256v1b18s2"/>
+													<note dur="8" dur.ges="128p" oct="3" pname="g" xml:id="p1cgd3n384v1b18s2"/>
+												</beam>
+												<beam>
+													<note dur="8" dur.ges="128p" oct="3" pname="f" xml:id="p1cfd3n512v1b18s2"/>
+													<note dur="8" dur.ges="128p" oct="3" pname="e" xml:id="p1ced3n640v1b18s2"/>
+												</beam>
+											</layer>
+										</staff>
+									</measure>
+								</ending>
+								<ending n="2">
+									<measure n="19" right="end">
+										<staff n="1">
+											<layer n="1">
+												<note dots="1" dur="2" dur.ges="768p" oct="5" pname="d" xml:id="p1cdd5n0v1b19s1"/>
+											</layer>
+										</staff>
+										<staff n="2">
+											<layer n="1">
+												<note dots="1" dur="2" dur.ges="768p" oct="3" pname="d" xml:id="p1cdd3n0v1b19s2"/>
+											</layer>
+										</staff>
+									</measure>
+								</ending>
+							</section>
+						</section>
+					</score>
+				</mdiv>
+			</body>
+		</music>
+		<music n="tune_2" label="Lady Dumfrie's Minuet">
+			<body>
+				<mdiv type="tune" facs="#edirom_zone_3d0aa53b-da35-4f06-87d0-03bac6036339">
+					<score>
+						<scoreDef meter.count="3" meter.unit="4" page.botmar="12.7mm" page.height="297mm" page.leftmar="12.7mm" page.rightmar="12.7mm" page.topmar="12.7mm" page.width="210mm" ppq="256">
+							<staffGrp>
+								<staffGrp n="1" symbol="brace">
+									<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="2s" label="Piano" lines="5" n="1" xml:id="sd1-2"/>
+									<staffDef clef.line="4" clef.shape="F" key.mode="major" key.sig="2s" label="Piano" lines="5" n="2" xml:id="sd2-2"/>
+								</staffGrp>
+							</staffGrp>
+						</scoreDef>
+						<section type="strain" n="1">
+							<section type="incipit">
+								<measure label="1" n="1">
+									<anchoredText>Lady Dumfries's Minuet</anchoredText>
+									<staff n="1">
+										<layer n="1">
+											<note dots="1" dur="2" dur.ges="768p" oct="5" pname="f" xml:id="p1cfd5n0v1b1s1-2"/>
+										</layer>
+										<layer n="2">
+											<note dots="1" dur="2" dur.ges="768p" oct="5" pname="d" xml:id="p1cdd5n0v2b1s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="d" xml:id="p1cdd3n0v1b1s2-2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="f" xml:id="p1cfd3n128v1b1s2"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n256v1b1s2"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="d" xml:id="p1cdd4n384v1b1s2"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n512v1b1s2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="g" xml:id="p1cgd3n640v1b1s2"/>
+											</beam>
+										</layer>
+									</staff>
+								</measure>
+								<measure n="2">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n0v1b2s1"/>
+											<note dur="4" dur.ges="256p" oct="5" pname="c" xml:id="p1ccd5n256v1b2s1"/>
+											<note dur="4" dur.ges="256p" oct="5" pname="d" xml:id="p1cdd5n512v1b2s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="f" xml:id="p1cfd3n0v1b2s2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n128v1b2s2"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="e" xml:id="p1ced3n256v1b2s2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n384v1b2s2"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="d" xml:id="p1cdd3n512v1b2s2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="a" xml:id="p1cad3n640v1b2s2"/>
+											</beam>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+							<section type="cadence">
+								<measure n="4" right="rptend">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="f" xml:id="p1cfd4n0v1b4s1"/>
+											<note dur="2" dur.ges="512p" oct="4" pname="e" xml:id="p1ced4n256v1b4s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="a" xml:id="p1cad3n0v1b4s2-2"/>
+											<note dur="4" dur.ges="256p" oct="2" pname="a" xml:id="p1cad2n512v1b4s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+						</section>
+						<section type="strain" n="2">
+							<section type="incipit">
+								<measure n="5" right="rptstart">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n0v1b5s1"/>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n256v1b5s1-2"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n384v1b5s1"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n512v1b5s1-2"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n640v1b5s1"/>
+											</beam>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="2" pname="a" xml:id="p1cad2n0v1b5s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="c" xml:id="p1ccd3n256v1b5s2"/>
+											<note dur="4" dur.ges="256p" oct="3" pname="e" xml:id="p1ced3n512v1b5s2"/>
+										</layer>
+									</staff>
+								</measure>
+								<measure n="6">
+									<staff n="1">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="4" pname="a" xml:id="p1cad4n0v1b6s1"/>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="5" pname="e" xml:id="p1ced5n256v1b6s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="c" xml:id="p1ccd5n341v1b6s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n426v1b6s1"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="5" pname="f" xml:id="p1cfd5n512v1b6s1"/>
+												<note dur="8" dur.ges="128p" oct="5" pname="d" xml:id="p1cdd5n597v1b6s1"/>
+												<note dur="8" dur.ges="128p" oct="4" pname="a" xml:id="p1cad4n682v1b6s1"/>
+											</beam>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="2" dur.ges="512p" oct="3" pname="a" xml:id="p1cad3n0v1b6s2"/>
+											<rest dur="4" dur.ges="256p" xml:id="p1r512v1b6s2"/>
+										</layer>
+									</staff>
+								</measure>
+							</section>
+							<section type="cadence">
+								<measure n="8" right="end">
+									<staff n="1">
+										<layer n="1">
+											<note dots="1" dur="2" dur.ges="768p" oct="4" pname="d" xml:id="p1cdd4n0v1b8s1"/>
+										</layer>
+									</staff>
+									<staff n="2">
+										<layer n="1">
+											<note dur="4" dur.ges="256p" oct="3" pname="d" xml:id="p1cdd3n0v1b8s2-2"/>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="e" xml:id="p1ced3n256v1b8s2"/>
+												<note dur="8" dur.ges="128p" oct="3" pname="d" xml:id="p1cdd3n384v1b8s2"/>
+											</beam>
+											<beam>
+												<note dur="8" dur.ges="128p" oct="3" pname="c" xml:id="p1ccd3n512v1b8s2"/>
+												<note dur="8" dur.ges="128p" oct="2" pname="b" xml:id="p1cbd2n640v1b8s2"/>
+											</beam>
+										</layer>
+									</staff>
+								</measure>
+							</section>							
+						</section>
+					</score>
+				</mdiv>
+			</body>
+		</music>
+	</group>
+</music>

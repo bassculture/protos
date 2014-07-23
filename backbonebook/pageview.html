@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+  <head>
+    <meta charset="utf-8">
+    <title>Backbone.js • Bass Culture Book View</title>
+    <script type="text/JavaScript" src="js/helpers/loadXMLDoc.js"></script>
+    <script type="text/JavaScript" src="../dep-rep/m2v/src/meilib.js"></script>
+
+
+</head>
+  <style type="text/css">
+    div#preloader, 
+    div#preloader img {
+      visibility: hidden;
+      display: none;
+    }
+
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;      
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0px;
+    }
+
+  </style>
+
+  <body>
+    <link rel="stylesheet" href="css/views/page.css">
+
+    <div id="book-view" style="width: 100%; height: 100%; border: 20px solid green;">
+      <div id="page-view" class="page-view">
+        <div id="img-box" class="img-box">
+          <div class="zoom-box">
+              <img alt="Facsimile image cannot be displayed"></img>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/template" id="img-template">
+    </script>
+
+    <div id="preloader">
+      <img id="pg-15" src="img/riddell/scaled/50/Ca9-d_22_015.jpg"/>
+      <img id="pg-16" src="img/riddell/scaled/50/Ca9-d_22_016.jpg"/>
+      <img id="pg-17" src="img/riddell/scaled/50/Ca9-d_22_017.jpg"/>
+      <img id="pg-18" src="img/riddell/scaled/50/Ca9-d_22_018.jpg"/>
+      <img id="pg-19" src="img/riddell/scaled/50/Ca9-d_22_019.jpg"/>
+      <img id="pg-20" src="img/riddell/scaled/50/Ca9-d_22_020.jpg"/>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/views/events.js"></script>
+    <script src="js/models/page.js"></script>
+    <script src="js/models/book.js"></script>
+    <script src="js/collections/pages.js"></script>
+    <script src="js/views/page-view.js"></script>
+    <script src="js/views/book-view.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

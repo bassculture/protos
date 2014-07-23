@@ -1,0 +1,30 @@
+.page-view, 
+.page-view * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.page-view {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 5px solid red;
+  overflow: auto;
+}
+.img-box {
+  border: 5px solid blue;
+  padding: 10px;
+  overflow: auto;
+}
+
+.zoom-box {
+  border: 2px solid grey;
+  overflow: hidden;
+  position: relative;
+}
+
+.img {
+  width: 100%;
+  position: absolute;
+}
