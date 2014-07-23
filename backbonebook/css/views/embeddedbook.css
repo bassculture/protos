@@ -1,0 +1,14 @@
+
+#book-view {
+  width: 100%;
+  height: 100%;
+  border: 2px solid green;
+  padding: 10px;
+  overflow: auto;
+}
+
+.pages-view {
+  border: 2px solid brown;
+  padding: 5px;
+}
+
