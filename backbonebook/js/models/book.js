@@ -10,7 +10,7 @@ var app = app || {};
     defaults: {
       current_index: null,
       current_page: null,
-      base_path: "img/riddell/scaled/50",
+      base_path: "img/riddell/scaled/50/",
       meiDoc: null,
       filename: null,
     },
@@ -43,7 +43,8 @@ var app = app || {};
     },
 
     getPathOfTarget: function(target) {
-        var targetpath = target.replace(/http:\/\/hms\.scot\/facsimiles/, this.get('base_path'));
+        // var targetpath = target.replace(/http:\/\/hms\.scot\/facsimiles/, this.get('base_path'));
+        var targetpath = this.get('base_path') + target;
         return targetpath;
     },
 
@@ -53,6 +54,34 @@ var app = app || {};
         var xmlDoc = loadXMLDoc(this.get('filename'));
         this.set('meiDoc', new MeiLib.MeiDoc(xmlDoc));
       }
+    },
+
+    prevPage: function() {
+      var me = this,
+        pages = me.get('pages'),
+        current_index = me.get('current_index');
+
+      if (current_index !== null && 0 < current_index) {
+        me.set({
+          current_index: current_index - 1, 
+          current_page: pages.models[current_index - 1],
+        });
+      }
+      return me;
+    },
+    
+    nextPage: function() {
+      var me = this,
+        pages = me.get('pages'),
+        current_index = me.get('current_index');
+
+      if (current_index !== null && current_index < pages.length - 1) {
+        me.set({
+          current_index: current_index + 1, 
+          current_page: pages.models[current_index + 1],
+        });
+      }
+      return me;
     },
 
 

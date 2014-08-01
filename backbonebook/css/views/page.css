@@ -18,6 +18,13 @@
   overflow: auto;
 }
 
+.pagination-div {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  opacity: 0.9;
+}
+
 .zoom-box {
   border: 2px solid grey;
   overflow: hidden;

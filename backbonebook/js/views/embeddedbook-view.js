@@ -12,6 +12,12 @@ var app = app || {};
     //... is a div
     el:  '#book-view',
 
+
+    events: {
+      'click .prev-page': 'handlePrevClick',
+      'click .next-page': 'handleNextClick',
+    },
+
     // The PageView listens for changes to its model, re-rendering.
     initialize: function () {
       this.listenTo(this.model, 'change:current_page', this.render);
@@ -28,12 +34,27 @@ var app = app || {};
       this.windowResizeListener = this.createListener(this.resize);
       app.addEventListener(window, 'resize', this.windowResizeListener);
 
-      this.pageClickListener = this.createListener(this.handlePageClick);
-      app.addEventListener(this.$('.pages-view').get(0), 'click', this.pageClickListener);
+      // this.pageClickListener = this.createListener(this.handlePageClick);
+      // app.addEventListener(this.$('.pages-view').get(0), 'click', this.pageClickListener);
 
+      // this.prevClickListener = this.createListener(this.handlePrevClick);
+      // app.addEventListener(this.$('button.prev-page').get(0), 'click', this.handlePrevClick);
+
+      // this.nextClickListener = this.createListener(this.handleNextClick);
+      // app.addEventListener(this.$('button.next-page').get(0), 'click', this.handleNextClick);
 
       this.resize();
 
+    },
+
+    handlePrevClick: function (event) {
+      console.log('prev page');
+      this.model.prevPage();
+    },
+
+    handleNextClick: function (event) {
+      console.log('next page');
+      this.model.nextPage();
     },
 
     handlePageClick: function (event) {
@@ -55,6 +76,7 @@ var app = app || {};
       console.log('render book view');
       this.pageview.model = this.model.get('current_page');
       this.pageview.render();
+      this.$('span.pagenumber').html( (this.model.get('current_index') + 1).toString() + '/' + this.model.get('pages').length);
       // this.$el.html(this.pageview.render().el);
       return this;
     },

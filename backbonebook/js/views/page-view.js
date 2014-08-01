@@ -18,7 +18,7 @@ var app = app || {};
 
     // The DOM events specific to an item.
     events: {
-      'click': 'onClick',
+      // 'click': 'onClick',
     },
 
     onClick: function () {
